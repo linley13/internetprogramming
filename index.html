@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<button onclick="getLocation()">Try It</button>
+<button onclick="getList()">주변맛집</button>
+
+<div id="mapholder"></div>
+<div id="cur"></div>
+
+<script>
+ var x = document.getElementById("demo");
+ 
+ if(window.openDatabase)/*{
+			var db = {
+			con:null,
+			test:function(){alert('test')},
+			conn:function(){
+				this.con = window.openDatabase('localhost', 'cs20111669','dbpass','db20111669',);
+			},
+			create:function(){
+				this.con.transaction(function(tx){
+					
+					tx.executeSql("create table test(id,msg,regdate)");
+				});
+			},
+			insert:function(){
+					var tstID = document.getElementById('tstID').value;
+					var tstMSG = document.getElementById('tstMSG').value;
+					var d = new Date();
+					var regdate = d.getFullYear()+"년"+(d.getMonth() + 1)+"월"+d.getDate()+"일 "+d.getHours()+"시"+d.getMinutes()+"분"+ d.getSeconds()+"초";
+					if(this.con == null) alert("DB를 연결 하세요~");
+					this.con.transaction(function(tx){
+						tx.executeSql("insert into test values(?,?,?)",[tstID,tstMSG,regdate]);
+					});
+			},
+			select:function(){
+				if(this.con == null) alert("DB를 연결 하세요~");
+				this.con.transaction(function(tx){
+					tx.executeSql("select * from test",[],function(tx,result){
+						document.getElementById('selectTable').innerHTML = "";
+						document.getElementById('selectTable').innerHTML +=  "<tr><td>ID</td><td>내용</td><td>등록일</td></tr>";
+						for(var i=0;i<result.rows.length;i++)
+						{
+							var row = result.rows.item(i);
+							 document.getElementById('selectTable').innerHTML +=  "<tr><td>" + row['id'] + "</td><td>" + row['msg'] + "</td><td>" + row['regdate'] + "</td></tr>";
+						}
+					});
+				});
+			}
+
+
+		};
+	}
+	else
+		document.write('웹디비를 사용 할 수 없는 브라우저 입니다.');*/
+ 
+function getList()
+{
+ var hl = "<ul>";
+ var map_uri = "http://maps.google.co.kr/?q=";
+ 
+ for(var i = 0 ; i < localStorage.length ; i++){
+    
+    var data = localStorage[i].split("\t");
+    var abc = "<a href = '"+map_uri+data[1]+","+data[2]+"' target="+"_blank>"+data[0]+"</a>";
+    hl += "<li>"+abc+" ";
+    if(data[3]!="")
+  		 hl += "<a href = 'http://"+data[3]+"' target="+"_blank>♥홈페이지♥</a>";
+   	hl += "</li>";
+ 
+ }
+ document.getElementById("mapholder").innerHTML = hl + "</ul>";
+ document.getElementById("cur").innerHTML = "";
+
+ 
+ 
+}
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    var latlon = position.coords.latitude + "," + position.coords.longitude;
+   //x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude; 
+   var inputString = prompt('가게 이름을 입력하세요', ' ');
+   var item = inputString+"\t"+position.coords.latitude+"\t"+position.coords.longitude+"\t";
+   localStorage.setItem(localStorage.length, item);
+   var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
+    +latlon+"&zoom=14&size=400x300&sensor=false";
+    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+   var abc = "<img id="+"cur"+" style='position: absolute; left: 155px; top: 165px' src=images/coordinates_start_point.png>"
+   document.getElementById("cur").innerHTML = abc+"맛집 등록 완료!";
+   
+    
+   
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+</script>
+   <div id="close-popup" class="ui-popup">
+        <div class="ui-popup-header">Close application</div>
+        <div class="ui-popup-content popup-content-padding">
+            Are you sure you want to close the application?
+        </div>
+        <div class="ui-popup-footer ui-grid-col-2">
+            <a class="ui-btn no" data-rel="back" data-inline="true">No</a>
+            <a class="ui-btn yes" data-rel="back" data-inline="true" id="close-popup-yes-btn">Yes</a>
+        </div>
+    </div>
+
+    <script src="lib/tau/mobile/js/tau.min.js"></script>
+    <script src="js/common/app.common.events.js"></script>
+    <script src="js/common/app.common.calculations.js"></script>
+    <script src="js/model/app.model.battery.js"></script>
+    <script src="js/model/app.model.compass.js"></script>
+    <script src="js/model/app.model.network.js"></script>
+    <script src="js/model/app.model.geolocation.js"></script>
+    <script src="js/ui/app.ui.finish.js"></script>
+    <script src="js/ui/app.ui.navigation.js"></script>
+    <script src="js/ui/app.ui.destination.js"></script>
+    <script src="js/ui/app.ui.waiting.js"></script>
+    <script src="js/ui/app.ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

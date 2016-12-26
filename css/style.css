@@ -1,0 +1,425 @@
+.ui-page.waiting .ui-content {
+    background-image: url('../images/waiting_background.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.ui-page.finish .ui-content {
+    background-image: url('../images/finish_background.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.ui-page.destination .ui-content,
+.ui-page.navigation .ui-content,
+.ui-page.finish .ui-content {
+    top: 0 !important;
+    height: 100% !important;
+}
+
+.ui-page.finish .ui-header .ui-header-btn::after {
+    -webkit-mask-image: url(../images/close_button.png);
+}
+
+.finish-flag {
+    width: 100%;
+    content: url('../images/finish_flag.png');
+    position: absolute;
+    top: 96px;
+}
+
+.ui-page.destination.map .ui-content {
+    top: 55px !important;
+    height: calc(100% - 55px) !important;
+}
+
+.ui-page.destination .map {
+    visibility: hidden;
+}
+
+.ui-page.destination.map .map {
+    visibility: visible;
+}
+
+.ui-page.destination .manual {
+    visibility: visible;
+}
+
+.ui-page.destination.map .manual {
+    visibility: hidden;
+}
+
+.ui-btn.ui-state-disabled {
+    color: #fff;
+    opacity: .5;
+}
+
+.ui-page.destination .ui-header .ui-header-btn::after,
+.ui-page.navigation .ui-header .ui-header-btn.btn-icon-map::after {
+    -webkit-mask-image: url(../images/map_button.png);
+}
+
+.ui-page.destination.map .ui-header .ui-header-btn::after,
+.ui-page.navigation .ui-header .ui-header-btn.btn-icon-manual::after {
+    -webkit-mask-image: url(../images/manual_button.png);
+}
+
+.ui-page.destination.map .ui-header {
+    background-color: rgb(34, 182, 195);
+    position: fixed;
+}
+
+.ui-page.destination .ui-header,
+.ui-page.navigation .ui-header,
+.ui-page.finish .ui-header {
+    background-color: transparent;
+    position: absolute;
+}
+
+.ui-page.destination .ui-content {
+    background-image: url('../images/manual_background.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.ui-page.destination .ui-content.keyboard-on {
+    background-position: 0 -220px;
+}
+
+.ui-page.destination.map .shadow {
+    position: absolute;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.ui-page.destination.map .header-shadow {
+    top: 0;
+    height: 27px;
+    pointer-events: none;
+    background-image: url('../images/map_header_shadow.png');
+}
+
+.ui-page.destination.map .footer-shadow {
+    bottom: 0;
+    height: 66px;
+    background-image: url('../images/map_footer_shadow.png');
+}
+
+.waiting-message {
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    bottom: 79px;
+    font-size: 15px;
+    line-height: 17px;
+}
+
+.waiting-message.lost {
+    color: rgb(29, 126, 130);
+}
+
+.map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.manual {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 100%;
+    bottom: 76px;
+}
+
+.start {
+    height: 167px;
+    color: rgb(31, 157, 168);
+}
+
+.start .text {
+    position: absolute;
+    height: 20px;
+    line-height: 20px;
+    font-size: 20px;
+}
+
+.start .header {
+    width: 100%;
+    text-align: center;
+    top: 12px;
+}
+
+.start .label {
+    left: 19px;
+    width: 119px;
+    text-align: left;
+}
+
+.start .label.latitude {
+    top: 62px;
+}
+
+.start .label.longitude {
+    top: 102px;
+}
+
+.start .value {
+    right: 19px;
+    width: 119px;
+    text-align: right;
+}
+
+.start .value.latitude {
+    top: 62px;
+}
+
+.start .value.longitude {
+    top: 102px;
+}
+
+.path-background {
+    width: 100%;
+    content: url('../images/manual_background_path.png');
+    position: absolute;
+    top: 128px;
+    z-index: -1;
+}
+
+.ui-content.keyboard-on .path-background {
+    display: none;
+}
+
+.end {
+    position: relative;
+    height: 316px;
+    color: #fff;
+}
+
+.ui-content.keyboard-on .start {
+    display: none;
+}
+
+.ui-content.keyboard-on .end {
+    height: 100%;
+}
+
+.end .text {
+    position: absolute;
+    height: 20px;
+    width: 100%;
+    line-height: 20px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.end .header {
+    top: 106px;
+}
+
+.ui-content.keyboard-on .end .header {
+    top: 24px;
+}
+
+.end .text.latitude {
+    top: 152px;
+}
+
+.ui-content.keyboard-on .end .text.latitude {
+    top: 71px;
+}
+
+.end .text.longitude {
+    top: 240px;
+}
+
+.ui-content.keyboard-on .end .text.longitude {
+    top: 161px;
+}
+
+.end .value {
+    position: absolute;
+    height: 36px;
+    width: 100%;
+}
+
+.end .value.latitude {
+    top: 177px;
+}
+
+.ui-content.keyboard-on .end .value.latitude {
+    top: 97px;
+}
+
+.end .value.longitude {
+    top: 265px;
+}
+
+.ui-content.keyboard-on .end .value.longitude {
+    top: 190px;
+}
+
+.end .value .input {
+    -webkit-appearance: none;
+    border: 0;
+    background: none;
+    font-size: 30px;
+    color: #fff;
+    float: left;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    letter-spacing: .26em;
+}
+
+.end .input.invalid,
+.end .label.invalid,
+.end .input.invalid::-webkit-input-placeholder {
+    color: rgb(0, 110, 120);
+}
+
+.ui-content.keyboard-on .end .input-dot.focused {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    bottom: -9px;
+    background-image: url('../images/caret_indicator.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.ui-btn:not(.ui-btn-circle):not(.ui-btn-nobg):not(.ui-floatingactions-item) {
+    background-color: rgb(249, 129, 0);
+}
+
+.ui-btn:not(.ui-btn-circle):not(.ui-btn-nobg):not(.ui-floatingactions-item)::before {
+    background-color: rgb(217, 112, 0);
+}
+
+.ui-page.navigation .ui-content {
+    background-image: url('../images/navigation_background.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.navigation .compass,
+.navigation .arrow {
+    position: absolute;
+    width: 100%;
+    height: 100vw;
+    top: 75px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.navigation .compass-shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url('../images/navigation_compass_shadow.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.navigation .progress {
+    position: absolute;
+    width: 470px;
+    height: 470px;
+    top: 20px;
+    left: -55px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.navigation .progress-path {
+    top: 0;
+    left: 0;
+    background-image: url('../images/navigation_progress_path.png');
+}
+
+.navigation .progress-path-mask {
+    -webkit-mask-image: url('../images/navigation_progress_path_mask.png');
+    -webkit-mask-size: 100%;
+}
+
+.navigation .progress-path-dots {
+    background-image: url('../images/navigation_progress_path_points.png');
+}
+
+.navigation .progress-path-indicator {
+    background-image: url('../images/navigation_progress_path_indicator.png');
+}
+
+.navigation .compass {
+    background-image: url('../images/navigation_compass.png');
+    -webkit-transition: all 0.7s ease-out;
+}
+
+.navigation .arrow {
+    background-image: url('../images/navigation_direction_indicator.png');
+    -webkit-transition: all 0.7s ease-out;
+}
+
+.distance-label {
+    position: absolute;
+    width: 100%;
+    height: 17px;
+    top: 568px;
+    line-height: 17px;
+    font-size: 15px;
+    text-align: center;
+    color: #fff;
+}
+
+.distance-value {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    top: 510px;
+    line-height: 50px;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(29, 126, 130);
+}
+
+.navigation .ui-scrollview-view {
+    overflow: hidden !important;
+}
+
+.finish .message {
+    position: absolute;
+    top: 439px;
+    color: #fff;
+    font-size: 15px;
+    line-height: 17px;
+    text-align: center;
+    width: 100%;
+}
+
+.ui-popup .ui-popup-header {
+    color: rgb(42, 204, 217);
+}
+
+.ui-btn.yes:not(.ui-btn-circle):not(.ui-btn-nobg):not(.ui-floatingactions-item) {
+    background-color: rgb(42, 204, 217);
+}
+
+.ui-btn.yes:not(.ui-btn-circle):not(.ui-btn-nobg):not(.ui-floatingactions-item)::before {
+    background-color: rgb(40, 182, 193);
+}
+
+.ui-btn.no:not(.ui-btn-circle):not(.ui-btn-nobg):not(.ui-floatingactions-item) {
+    background-color: rgb(49, 160, 169);
+}
+
+.ui-btn.no:not(.ui-btn-circle):not(.ui-btn-nobg):not(.ui-floatingactions-item)::before {
+    background-color: rgb(37, 130, 137);
+}
